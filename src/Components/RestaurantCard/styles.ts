@@ -1,9 +1,10 @@
 import { styled } from 'styled-components'
 import { color } from '../../styles'
+import { Link } from 'react-router-dom'
 
 export const Card = styled.div`
-  width: 472px;
-  height: 400px;
+  width: 100%;
+  height: 100%;
   position: relative;
   color: ${color.vermelho};
 `
@@ -16,8 +17,19 @@ export const RestaurantInfo = styled.div`
 `
 
 export const CardImg = styled.div`
-  width: 472px;
-  height: 217px;
+  width: 100%;
+  height: 28vh;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+
+  @media (max-width: 768px) {
+    width: 100%;
+  }
+
+  @media (max-width: 1024px) {
+    width: 100%;
+  }
 `
 
 export const CardText = styled.div`
@@ -57,14 +69,16 @@ export const CardTextContent = styled.p`
   line-height: 22px;
 `
 
-export const Button = styled.button`
+export const Button = styled(Link)`
+  text-align: center;
+  text-decoration: none;
   font-size: 14px;
   font-weight: bold;
   margin-top: 16px;
   margin-bottom: 8px;
   width: 82px;
   height: 24px;
-  padding: 4px 6px;
+  padding: 3px 6px;
   color: ${color.creme};
   background-color: ${color.vermelho};
   border: none;

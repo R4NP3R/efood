@@ -1,11 +1,16 @@
 import { styled } from 'styled-components'
+import { color } from '../../styles'
 
 export const Footer = styled.footer`
-  flex-direction: column;
-
+  background-color: ${color.creme};
+  max-height: 300px;
   div {
     display: flex;
     justify-content: center;
+  }
+
+  @media (max-width: 758px) {
+    width: 100%;
   }
 `
 export const Logo = styled.img`
@@ -31,4 +36,8 @@ export const FooterText = styled.p`
 
   margin-bottom: 40px;
   font-size: 10px;
+
+  @media (max-width: 758px) {
+    width: 90%;
+  }
 `

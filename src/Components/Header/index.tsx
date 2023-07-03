@@ -15,10 +15,14 @@ export const Header = ({ estaNaHome }: Props) => {
           estaNaHome={estaNaHome}
           style={{ backgroundImage: `url(${backgroundImage})` }}
         >
-          <S.Logo estaNaHome={estaNaHome} src={logo} alt="EFood" />
-          <S.titleHeader estaNaHome={estaNaHome}>
-            Viva experiências gastronômicas no conforto da sua casa
-          </S.titleHeader>
+          <S.LogoLink to="/">
+            <S.Logo estaNaHome={estaNaHome} src={logo} alt="EFood" />
+          </S.LogoLink>
+          <S.DivtitleHeader>
+            <S.titleHeader estaNaHome={estaNaHome}>
+              Viva experiências gastronômicas no conforto da sua casa
+            </S.titleHeader>
+          </S.DivtitleHeader>
         </S.Header>
       ) : (
         <>

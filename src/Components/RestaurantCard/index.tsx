@@ -18,7 +18,7 @@ export const RestaurantCard = ({
   infos
 }: Props) => (
   <S.Card>
-    <S.CardImg style={{ backgroundImage: `url(${image})` }} />
+    <S.CardImg style={{ backgroundImage: `url(${image})` }}></S.CardImg>
     <S.RestaurantInfo>
       {infos.map((infos) => (
         <Tag key={infos}>{infos}</Tag>
@@ -33,7 +33,7 @@ export const RestaurantCard = ({
         </span>
       </S.CardTitle>
       <S.CardTextContent>{description}</S.CardTextContent>
-      <S.Button>Saiba mais</S.Button>
+      <S.Button to="/restaurant">Saiba mais</S.Button>
     </S.CardText>
   </S.Card>
 )

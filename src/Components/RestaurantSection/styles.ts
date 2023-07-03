@@ -7,4 +7,10 @@ export const RestaurantContainer = styled.section`
   row-gap: 48px;
   padding-top: 80px;
   padding-bottom: 120px;
+
+  @media (max-width: 768px) {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
 `

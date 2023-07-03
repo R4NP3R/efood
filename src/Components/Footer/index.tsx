@@ -1,12 +1,12 @@
 import logo from '../../assets/images/logo.png'
-import backgroundImage from '../../assets/images/fundo.png'
+
 import * as S from './styles'
 import facebook from '../../assets/images/facebook.svg'
 import twitter from '../../assets/images/twitter.svg'
 import instagram from '../../assets/images/instagram.svg'
 
 export const Footer = () => (
-  <S.Footer style={{ backgroundImage: `url(${backgroundImage})` }}>
+  <S.Footer>
     <div>
       <S.Logo src={logo} alt="EFood" />
     </div>

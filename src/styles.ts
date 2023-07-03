@@ -23,6 +23,11 @@ export const GlobalCSS = createGlobalStyle`
     max-width: 1024px;
     width: 100%;
     margin: 0px auto;
+
+
+    @media (max-width: 1024px) {
+      max-width: 90%;
+    }
   }
 
 `

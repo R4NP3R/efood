@@ -6,9 +6,15 @@ import { Link } from 'react-router-dom'
 export const Header = styled.header<Props>`
   display: flex;
   align-items: center;
+  justify-content: space-between;
+  padding-bottom: ${(props) => (props.estaNaHome ? '0px;' : '14px;')};
   ${(props) =>
     props.estaNaHome ? 'flex-direction: column;' : 'justify-content: center;'};
-  height: ${(props) => (props.estaNaHome ? '354px' : '186px')};
+  height: ${(props) => (props.estaNaHome ? '354px' : '165px')};
+
+  @media (max-width: 768px) {
+    width: 100%;
+  }
 `
 export const RestaurantImage = styled.div`
   position: relative;
@@ -64,6 +70,7 @@ export const HeaderNavigation = styled.nav`
 export const LogoLink = styled(Link)`
   display: flex;
   align-items: center;
+  cursor: pointer;
 `
 
 export const Logo = styled.img<Props>`
@@ -72,10 +79,21 @@ export const Logo = styled.img<Props>`
   margin-top: ${(props) => (props.estaNaHome ? '64px' : '0px')};
 `
 
+export const DivtitleHeader = styled.div`
+  max-width: 100%;
+  display: flex;
+  justify-content: center;
+`
+
 export const titleHeader = styled.h2<Props>`
   font-size: ${(props) => (props.estaNaHome ? '36px' : '18px')};
   color: ${color.vermelho};
   text-align: center;
   width: ${(props) => (props.estaNaHome ? '540px' : '100%')};
-  margin-top: ${(props) => (props.estaNaHome ? '136px' : '0px')};
+  margin-bottom: ${(props) => (props.estaNaHome ? '40px' : '0px')};
+
+  @media (max-width: 768px) {
+    font-size: ${(props) => (props.estaNaHome ? '24px' : '16px')};
+    max-width: 90%;
+  }
 `
