@@ -1,4 +1,4 @@
-import { RestaurantClass } from '../../models/Restaurant'
+import { RestaurantClass } from '../../pages/home'
 import { RestaurantCard } from '../RestaurantCard'
 import { RestaurantContainer } from './styles'
 
@@ -6,19 +6,26 @@ type Props = {
   restaurant: RestaurantClass[]
 }
 
-export const RestaurantSection = ({ restaurant }: Props) => (
-  <RestaurantContainer className="container">
-    {restaurant.map((restaurant) => (
-      <>
-        <RestaurantCard
-          key={restaurant.title}
-          description={restaurant.description}
-          image={restaurant.image}
-          infos={restaurant.infos}
-          note={restaurant.note}
-          title={restaurant.title}
-        />
-      </>
-    ))}
-  </RestaurantContainer>
-)
+export const RestaurantSection = ({ restaurant }: Props) => {
+  if (!restaurant) {
+    return <h3>Carregando...</h3>
+  }
+
+  return (
+    <RestaurantContainer className="container">
+      {restaurant.map((restaurant) => (
+        <>
+          <RestaurantCard
+            key={restaurant.id}
+            description={restaurant.descricao}
+            image={restaurant.capa}
+            infos={restaurant.tipo}
+            note={restaurant.avaliacao}
+            title={restaurant.titulo}
+            id={restaurant.id}
+          />
+        </>
+      ))}
+    </RestaurantContainer>
+  )
+}

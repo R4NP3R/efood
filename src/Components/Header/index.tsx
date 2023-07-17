@@ -2,12 +2,16 @@ import * as S from './styles'
 import logo from '../../assets/images/logo.png'
 import backgroundImage from '../../assets/images/fundo.png'
 import LaDolce from '../../assets/images/LaDolceHeader.png'
+import { RestaurantClass } from '../../pages/home'
+import { useParams } from 'react-router-dom'
+import { useEffect } from 'react'
 
 export type Props = {
   estaNaHome: boolean
+  restaurant?: RestaurantClass
 }
 
-export const Header = ({ estaNaHome }: Props) => {
+export const Header = ({ estaNaHome, restaurant }: Props) => {
   return (
     <>
       {estaNaHome ? (
@@ -50,17 +54,19 @@ export const Header = ({ estaNaHome }: Props) => {
               </ul>
             </S.HeaderNavigation>
           </S.Header>
-          <S.RestaurantImage>
+          {/* <S.RestaurantImage>
             <S.RestaurantImageDark
               style={{
-                backgroundImage: `url(${LaDolce})`
+                backgroundImage: `url(${restaurant?.cardapio.find(
+                  (cardapio) => cardapio.foto
+                )})`
               }}
             ></S.RestaurantImageDark>
             <S.RestaurantImageText className="container">
-              <h3>Italiana</h3>
-              <p>La Dolce Vita Trattoria</p>
+              <h3>{restaurant?.tipo}</h3>
+              <p>{restaurant?.titulo}</p>
             </S.RestaurantImageText>
-          </S.RestaurantImage>
+          </S.RestaurantImage> */}
         </>
       )}
     </>

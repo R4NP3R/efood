@@ -7,7 +7,8 @@ type Props = {
   title: string
   description: string
   note: number
-  infos: string[]
+  infos: string
+  id: number
 }
 
 export const RestaurantCard = ({
@@ -15,14 +16,14 @@ export const RestaurantCard = ({
   title,
   description,
   note,
-  infos
+  infos,
+  id
 }: Props) => (
   <S.Card>
     <S.CardImg style={{ backgroundImage: `url(${image})` }}></S.CardImg>
+
     <S.RestaurantInfo>
-      {infos.map((infos) => (
-        <Tag key={infos}>{infos}</Tag>
-      ))}
+      <Tag key={infos}>{infos}</Tag>
     </S.RestaurantInfo>
 
     <S.CardText>
@@ -33,7 +34,7 @@ export const RestaurantCard = ({
         </span>
       </S.CardTitle>
       <S.CardTextContent>{description}</S.CardTextContent>
-      <S.Button to="/restaurant">Saiba mais</S.Button>
+      <S.Button to={`/restaurant/${id}`}>Saiba mais</S.Button>
     </S.CardText>
   </S.Card>
 )
