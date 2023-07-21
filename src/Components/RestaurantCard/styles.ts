@@ -18,7 +18,7 @@ export const RestaurantInfo = styled.div`
 
 export const CardImg = styled.div`
   width: 100%;
-  height: 28vh;
+  height: 217px;
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -65,7 +65,7 @@ export const CardTitle = styled.div`
 `
 export const CardTextContent = styled.p`
   font-size: 14px;
-  font-weight: bold;
+  font-weight: 400;
   line-height: 22px;
 `
 

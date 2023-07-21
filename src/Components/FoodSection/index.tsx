@@ -23,23 +23,18 @@ export const FoodSection = ({ restaurant }: Props) => {
     preco: 0
   })
 
+  const formataPreco = (precoN = 0) => {
+    return new Intl.NumberFormat('pt-BR', {
+      style: 'currency',
+      currency: 'BRL'
+    }).format(precoN)
+  }
+
   const getDescricao = (descricao: string) => {
     if (descricao.length > 178) {
       return descricao.slice(0, 178) + '...'
     }
     return descricao
-  }
-
-  const openModal = () => {
-    setModal({
-      isVisible: true,
-      descricao: modal.descricao,
-      foto: modal.foto,
-      id: modal.id,
-      nome: modal.nome,
-      porcao: modal.porcao,
-      preco: modal.preco
-    })
   }
 
   const closeModal = () => {
@@ -116,7 +111,9 @@ export const FoodSection = ({ restaurant }: Props) => {
                 <p>{modal.descricao}</p>
               </S.TextSeparator>
               <p>{`Serve de ${modal.porcao}`}</p>
-              <S.Button>{`Adicionar ao Carrinho - R$ ${modal.preco}`}</S.Button>
+              <S.Button>{`Adicionar ao Carrinho - ${formataPreco(
+                modal.preco
+              )}`}</S.Button>
             </div>
           </S.ModalContent>
           <div className="overlay" onClick={closeModal}></div>
