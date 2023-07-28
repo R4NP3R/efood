@@ -7,10 +7,10 @@ export const Header = styled.header<Props>`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding-bottom: ${(props) => (props.estaNaHome ? '0px;' : '14px;')};
+  padding-bottom: ${(props) => (props.estanahome ? '0px;' : '14px;')};
   ${(props) =>
-    props.estaNaHome ? 'flex-direction: column;' : 'justify-content: center;'};
-  height: ${(props) => (props.estaNaHome ? '354px' : '165px')};
+    props.estanahome ? 'flex-direction: column;' : 'justify-content: center;'};
+  height: ${(props) => (props.estanahome ? '354px' : '165px')};
 
   @media (max-width: 768px) {
     width: 100%;
@@ -76,7 +76,7 @@ export const LogoLink = styled(Link)`
 export const Logo = styled.img<Props>`
   width: 125px;
   height: 58px;
-  margin-top: ${(props) => (props.estaNaHome ? '64px' : '0px')};
+  margin-top: ${(props) => (props.estanahome ? '64px' : '0px')};
 `
 
 export const DivtitleHeader = styled.div`
@@ -86,14 +86,15 @@ export const DivtitleHeader = styled.div`
 `
 
 export const titleHeader = styled.h2<Props>`
-  font-size: ${(props) => (props.estaNaHome ? '36px' : '18px')};
+  font-size: ${(props) => (props.estanahome ? '36px' : '18px')};
   color: ${color.vermelho};
   text-align: center;
-  width: ${(props) => (props.estaNaHome ? '540px' : '100%')};
-  margin-bottom: ${(props) => (props.estaNaHome ? '40px' : '0px')};
+  width: ${(props) => (props.estanahome ? '540px' : '100%')};
+  margin-bottom: ${(props) => (props.estanahome ? '40px' : '0px')};
+  cursor: pointer;
 
   @media (max-width: 768px) {
-    font-size: ${(props) => (props.estaNaHome ? '24px' : '16px')};
+    font-size: ${(props) => (props.estanahome ? '24px' : '16px')};
     max-width: 90%;
   }
 `

@@ -83,3 +83,9 @@ export const Button = styled(Link)`
   background-color: ${color.vermelho};
   border: none;
 `
+
+export const CardLink = styled(Link)`
+  display: flex;
+  width: 100%;
+  height: 100%;
+`

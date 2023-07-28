@@ -3,14 +3,20 @@ import { BrowserRouter } from 'react-router-dom'
 import { GlobalCSS } from './styles'
 import { Footer } from './Components/Footer'
 import { Rotas } from './rotas'
+import { Provider } from 'react-redux'
+import { store } from './store'
+import { Cart } from './Cart'
 
 function App() {
   return (
-    <BrowserRouter>
-      <GlobalCSS />
-      <Rotas />
-      <Footer />
-    </BrowserRouter>
+    <Provider store={store}>
+      <BrowserRouter>
+        <GlobalCSS />
+        <Rotas />
+        <Footer />
+        <Cart />
+      </BrowserRouter>
+    </Provider>
   )
 }
 

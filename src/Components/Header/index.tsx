@@ -1,29 +1,35 @@
 import * as S from './styles'
 import logo from '../../assets/images/logo.png'
 import backgroundImage from '../../assets/images/fundo.png'
-import LaDolce from '../../assets/images/LaDolceHeader.png'
-import { RestaurantClass } from '../../pages/home'
-import { useParams } from 'react-router-dom'
-import { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { open } from '../../store/reducers/cart'
+import { RootReducer } from '../../store'
 
 export type Props = {
-  estaNaHome: boolean
-  restaurant?: RestaurantClass
+  estanahome: boolean
 }
 
-export const Header = ({ estaNaHome, restaurant }: Props) => {
+export const Header = ({ estanahome }: Props) => {
+  const dispatch = useDispatch()
+
+  const { items } = useSelector((state: RootReducer) => state.cart)
+
+  const openCart = () => {
+    dispatch(open())
+  }
+
   return (
     <>
-      {estaNaHome ? (
+      {estanahome ? (
         <S.Header
-          estaNaHome={estaNaHome}
+          estanahome={estanahome}
           style={{ backgroundImage: `url(${backgroundImage})` }}
         >
           <S.LogoLink to="/">
-            <S.Logo estaNaHome={estaNaHome} src={logo} alt="EFood" />
+            <S.Logo estanahome={estanahome} src={logo} alt="EFood" />
           </S.LogoLink>
           <S.DivtitleHeader>
-            <S.titleHeader estaNaHome={estaNaHome}>
+            <S.titleHeader estanahome={estanahome}>
               Viva experiências gastronômicas no conforto da sua casa
             </S.titleHeader>
           </S.DivtitleHeader>
@@ -31,53 +37,31 @@ export const Header = ({ estaNaHome, restaurant }: Props) => {
       ) : (
         <>
           <S.Header
-            estaNaHome={estaNaHome}
+            estanahome={estanahome}
             style={{ backgroundImage: `url(${backgroundImage})` }}
           >
             <S.HeaderNavigation className="container">
               <ul>
                 <li>
-                  <S.titleHeader estaNaHome={estaNaHome}>
+                  <S.titleHeader estanahome={estanahome}>
                     Restaurantes
                   </S.titleHeader>
                 </li>
                 <li>
                   <S.LogoLink to="/">
-                    <S.Logo estaNaHome={estaNaHome} src={logo} alt="EFood" />
+                    <S.Logo estanahome={estanahome} src={logo} alt="EFood" />
                   </S.LogoLink>
                 </li>
                 <li>
-                  <S.titleHeader estaNaHome={estaNaHome}>
-                    0 produto(s) no carrinho
+                  <S.titleHeader onClick={openCart} estanahome={estanahome}>
+                    {items.length} produto(s) no carrinho
                   </S.titleHeader>
                 </li>
               </ul>
             </S.HeaderNavigation>
           </S.Header>
-          {/* <S.RestaurantImage>
-            <S.RestaurantImageDark
-              style={{
-                backgroundImage: `url(${restaurant?.cardapio.find(
-                  (cardapio) => cardapio.foto
-                )})`
-              }}
-            ></S.RestaurantImageDark>
-            <S.RestaurantImageText className="container">
-              <h3>{restaurant?.tipo}</h3>
-              <p>{restaurant?.titulo}</p>
-            </S.RestaurantImageText>
-          </S.RestaurantImage> */}
         </>
       )}
     </>
   )
-}
-
-{
-  /* <S.Header style={{ backgroundImage: `url(${backgroundImage})` }}>
-      <S.Logo src={logo} alt="EFood" />
-      <S.titleHeader>
-        Viva experiências gastronômicas no conforto da sua casa
-      </S.titleHeader>
-    </S.Header> */
 }

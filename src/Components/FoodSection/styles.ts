@@ -186,11 +186,37 @@ export const ModalContent = styled.div`
       display: block;
     }
   }
+
+  @media (max-width: 768px) {
+    width: 80%;
+    height: 90%;
+    flex-direction: column;
+    align-content: center;
+
+    > div {
+      width: 100%;
+      margin-left: 0px;
+      display: flex;
+      align-items: center;
+    }
+
+    h4 {
+      margin-top: 8px;
+    }
+
+    p {
+      margin-bottom: 24px;
+    }
+  }
 `
 export const TextSeparator = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+
+  @media (max-width: 768px) {
+    align-items: center;
+  }
 `
 
 export const IconeFechar = styled.img`

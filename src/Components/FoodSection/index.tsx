@@ -3,6 +3,9 @@ import { CardapioItem, RestaurantClass } from '../../pages/home'
 import { FoodContainer } from './styles'
 import fechar from '../../assets/images/fechar.png'
 import * as S from './styles'
+import { useDispatch } from 'react-redux'
+
+import { add, open } from '../../store/reducers/cart'
 
 type Props = {
   restaurant: RestaurantClass
@@ -12,7 +15,16 @@ interface ModalState extends CardapioItem {
   isVisible: boolean
 }
 
+export const formataPreco = (precoN = 0) => {
+  return new Intl.NumberFormat('pt-BR', {
+    style: 'currency',
+    currency: 'BRL'
+  }).format(precoN)
+}
+
 export const FoodSection = ({ restaurant }: Props) => {
+  const dispatch = useDispatch()
+
   const [modal, setModal] = useState<ModalState>({
     isVisible: false,
     descricao: '',
@@ -23,11 +35,9 @@ export const FoodSection = ({ restaurant }: Props) => {
     preco: 0
   })
 
-  const formataPreco = (precoN = 0) => {
-    return new Intl.NumberFormat('pt-BR', {
-      style: 'currency',
-      currency: 'BRL'
-    }).format(precoN)
+  const openCart = () => {
+    dispatch(open())
+    dispatch(add(modal))
   }
 
   const getDescricao = (descricao: string) => {
@@ -111,7 +121,9 @@ export const FoodSection = ({ restaurant }: Props) => {
                 <p>{modal.descricao}</p>
               </S.TextSeparator>
               <p>{`Serve de ${modal.porcao}`}</p>
-              <S.Button>{`Adicionar ao Carrinho - ${formataPreco(
+              <S.Button
+                onClick={openCart}
+              >{`Adicionar ao Carrinho - ${formataPreco(
                 modal.preco
               )}`}</S.Button>
             </div>
