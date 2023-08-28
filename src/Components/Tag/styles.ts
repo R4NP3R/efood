@@ -6,7 +6,7 @@ export const TagContainer = styled.div`
   font-weight: bold;
   margin-left: 8px;
   padding: 4px 6px;
-  color: ${color.creme};
-  background-color: ${color.vermelho};
+  color: ${color.cream};
+  background-color: ${color.red};
   border: none;
 `

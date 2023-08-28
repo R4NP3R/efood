@@ -1,11 +1,12 @@
 import { useState } from 'react'
-import { CardapioItem, RestaurantClass } from '../../pages/home'
-import { FoodContainer } from './styles'
-import fechar from '../../assets/images/fechar.png'
-import * as S from './styles'
 import { useDispatch } from 'react-redux'
 
+import { parseToBrl } from '../../utils'
 import { add, open } from '../../store/reducers/cart'
+
+import close from '../../assets/images/fechar.png'
+import * as S from './styles'
+import Loader from '../Loader'
 
 type Props = {
   restaurant: RestaurantClass
@@ -13,13 +14,6 @@ type Props = {
 
 interface ModalState extends CardapioItem {
   isVisible: boolean
-}
-
-export const formataPreco = (precoN = 0) => {
-  return new Intl.NumberFormat('pt-BR', {
-    style: 'currency',
-    currency: 'BRL'
-  }).format(precoN)
 }
 
 export const FoodSection = ({ restaurant }: Props) => {
@@ -40,7 +34,7 @@ export const FoodSection = ({ restaurant }: Props) => {
     dispatch(add(modal))
   }
 
-  const getDescricao = (descricao: string) => {
+  const getDescription = (descricao: string) => {
     if (descricao.length > 178) {
       return descricao.slice(0, 178) + '...'
     }
@@ -60,7 +54,7 @@ export const FoodSection = ({ restaurant }: Props) => {
   }
 
   if (!restaurant) {
-    return <h3>Carregando...</h3>
+    return <Loader />
   }
 
   return (
@@ -76,9 +70,9 @@ export const FoodSection = ({ restaurant }: Props) => {
           <p>{restaurant.titulo}</p>
         </S.RestaurantImageText>
       </S.RestaurantImage>
-      <FoodContainer className="container">
+      <S.FoodContainer className="container">
         {restaurant.cardapio.map((cardapio) => (
-          <>
+          <div key={cardapio.id}>
             <S.Card>
               <S.CardImg src={cardapio.foto} alt={`${cardapio.nome}`} />
               <S.CardText>
@@ -86,7 +80,7 @@ export const FoodSection = ({ restaurant }: Props) => {
                   <h3>{cardapio.nome}</h3>
                 </S.CardTitle>
                 <S.CardTextContent>
-                  {getDescricao(cardapio.descricao)}
+                  {getDescription(cardapio.descricao)}
                 </S.CardTextContent>
                 <S.Button
                   onClick={() =>
@@ -105,12 +99,12 @@ export const FoodSection = ({ restaurant }: Props) => {
                 </S.Button>
               </S.CardText>
             </S.Card>
-          </>
+          </div>
         ))}
-        <S.Modal className={modal.isVisible ? 'visivel' : ''}>
+        <S.Modal className={modal.isVisible ? 'visible' : ''}>
           <S.ModalContent>
             <S.IconeFechar
-              src={fechar}
+              src={close}
               onClick={closeModal}
               alt="icone de fechar"
             />
@@ -123,14 +117,12 @@ export const FoodSection = ({ restaurant }: Props) => {
               <p>{`Serve de ${modal.porcao}`}</p>
               <S.Button
                 onClick={openCart}
-              >{`Adicionar ao Carrinho - ${formataPreco(
-                modal.preco
-              )}`}</S.Button>
+              >{`Adicionar ao Carrinho - ${parseToBrl(modal.preco)}`}</S.Button>
             </div>
           </S.ModalContent>
           <div className="overlay" onClick={closeModal}></div>
         </S.Modal>
-      </FoodContainer>
+      </S.FoodContainer>
     </>
   )
 }

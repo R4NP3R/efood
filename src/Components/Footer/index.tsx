@@ -1,9 +1,8 @@
 import logo from '../../assets/images/logo.png'
-
-import * as S from './styles'
 import facebook from '../../assets/images/facebook.svg'
 import twitter from '../../assets/images/twitter.svg'
 import instagram from '../../assets/images/instagram.svg'
+import * as S from './styles'
 
 export const Footer = () => (
   <S.Footer>

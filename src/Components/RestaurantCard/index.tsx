@@ -1,7 +1,7 @@
-import * as S from './styles'
-import star from '../../assets/images/estrela.svg'
 import { Tag } from '../Tag'
-import { Link } from 'react-router-dom'
+import star from '../../assets/images/estrela.svg'
+import * as S from './styles'
+import Loader from '../Loader'
 
 type Props = {
   image: string
@@ -10,6 +10,7 @@ type Props = {
   note: number
   infos: string
   id: number
+  isLoading: boolean
 }
 
 export const RestaurantCard = ({
@@ -18,7 +19,8 @@ export const RestaurantCard = ({
   description,
   note,
   infos,
-  id
+  id,
+  isLoading
 }: Props) => {
   const getDescricao = (descricao: string) => {
     if (descricao.length > 272) {
@@ -26,6 +28,11 @@ export const RestaurantCard = ({
     }
     return descricao
   }
+
+  if (isLoading) {
+    return <Loader />
+  }
+
   return (
     <>
       <S.Card>

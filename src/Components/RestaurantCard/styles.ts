@@ -6,7 +6,7 @@ export const Card = styled.div`
   width: 100%;
   height: 100%;
   position: relative;
-  color: ${color.vermelho};
+  color: ${color.red};
 `
 
 export const RestaurantInfo = styled.div`
@@ -36,11 +36,11 @@ export const CardText = styled.div`
   display: flex;
   flex-direction: column;
   padding: 0px 8px;
-  background-color: ${color.branco};
+  background-color: ${color.white};
   font-size: 14px;
   font-weight: bold;
   line-height: 22px;
-  border: 1px solid ${color.vermelho};
+  border: 1px solid ${color.red};
   border-top: none;
 `
 
@@ -79,8 +79,8 @@ export const Button = styled(Link)`
   width: 82px;
   height: 24px;
   padding: 3px 6px;
-  color: ${color.creme};
-  background-color: ${color.vermelho};
+  color: ${color.cream};
+  background-color: ${color.red};
   border: none;
 `
 

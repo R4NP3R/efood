@@ -1,9 +1,10 @@
-import * as S from './styles'
+import { useDispatch, useSelector } from 'react-redux'
+import { RootReducer } from '../../store'
+import { open } from '../../store/reducers/cart'
+
 import logo from '../../assets/images/logo.png'
 import backgroundImage from '../../assets/images/fundo.png'
-import { useDispatch, useSelector } from 'react-redux'
-import { open } from '../../store/reducers/cart'
-import { RootReducer } from '../../store'
+import * as S from './styles'
 
 export type Props = {
   estanahome: boolean

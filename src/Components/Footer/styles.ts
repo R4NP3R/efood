@@ -2,7 +2,7 @@ import { styled } from 'styled-components'
 import { color } from '../../styles'
 
 export const Footer = styled.footer`
-  background-color: ${color.creme};
+  background-color: ${color.cream};
   max-height: 300px;
   div {
     display: flex;

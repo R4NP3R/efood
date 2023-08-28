@@ -45,7 +45,7 @@ export const RestaurantImageText = styled.div`
     top: 25px;
     font-weight: 100;
     font-size: 32px;
-    color: ${color.branco};
+    color: ${color.white};
   }
 
   p {
@@ -53,15 +53,15 @@ export const RestaurantImageText = styled.div`
     bottom: 32px;
     font-size: 32px;
     font-weight: 900;
-    color: ${color.branco};
+    color: ${color.white};
   }
 `
 
 export const Card = styled.div`
   width: 320px;
   height: 358px;
-  border: 8px solid ${color.vermelho};
-  background-color: ${color.vermelho};
+  border: 8px solid ${color.red};
+  background-color: ${color.red};
 
   @media (max-width: 768px) {
     width: 100%;
@@ -95,7 +95,7 @@ export const CardTitle = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  color: ${color.creme};
+  color: ${color.cream};
   font-size: 16px;
   font-weight: 900;
   padding-bottom: 8px;
@@ -107,7 +107,7 @@ export const CardTextContent = styled.p`
   font-size: 14px;
   font-weight: 400;
   line-height: 22px;
-  color: ${color.creme};
+  color: ${color.cream};
 
   @media (max-width: 768px) {
     width: 100%;
@@ -122,8 +122,8 @@ export const Button = styled.button`
   height: 24px;
   padding: 4px 6px;
   cursor: pointer;
-  color: ${color.vermelho};
-  background-color: ${color.creme};
+  color: ${color.red};
+  background-color: ${color.cream};
   border: none;
 `
 
@@ -138,7 +138,7 @@ export const Modal = styled.div`
   align-items: center;
   justify-content: center;
 
-  &.visivel {
+  &.visible {
     display: flex;
   }
 
@@ -160,9 +160,9 @@ export const ModalContent = styled.div`
   position: relative;
   display: flex;
   z-index: 1;
-  background-color: ${color.vermelho};
+  background-color: ${color.red};
   padding: 32px;
-  color: ${color.branco};
+  color: ${color.white};
 
   > div {
     display: flex;

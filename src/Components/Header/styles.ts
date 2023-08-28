@@ -36,7 +36,7 @@ export const RestaurantImageText = styled.div`
     top: 25px;
     font-weight: 100;
     font-size: 32px;
-    color: ${color.branco};
+    color: ${color.white};
   }
 
   p {
@@ -44,7 +44,7 @@ export const RestaurantImageText = styled.div`
     bottom: 32px;
     font-size: 32px;
     font-weight: 900;
-    color: ${color.branco};
+    color: ${color.white};
   }
 `
 
@@ -87,7 +87,7 @@ export const DivtitleHeader = styled.div`
 
 export const titleHeader = styled.h2<Props>`
   font-size: ${(props) => (props.estanahome ? '36px' : '18px')};
-  color: ${color.vermelho};
+  color: ${color.red};
   text-align: center;
   width: ${(props) => (props.estanahome ? '540px' : '100%')};
   margin-bottom: ${(props) => (props.estanahome ? '40px' : '0px')};

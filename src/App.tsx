@@ -5,7 +5,7 @@ import { Footer } from './Components/Footer'
 import { Rotas } from './rotas'
 import { Provider } from 'react-redux'
 import { store } from './store'
-import { Cart } from './Cart'
+import { Cart } from './Components/Cart'
 
 function App() {
   return (
